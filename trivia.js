@@ -87,13 +87,15 @@ function endGame() {
     const timeTaken = (endTime - startTime) / 1000;
     console.log(`\nGame Over! Your score is ${score} out of ${questions.length}`);
     console.log(`Time taken: ${timeTaken} seconds`);
-    rl.close();
-}
+
 if (score === questions.length) {
     console.log("Congratulations! You answered all questions correctly!");
+} else if (score >= questions.length / 2)   {
+    console.log(`You answered ${score} out of ${questions.length} questions correctly.`);
 } else {
     console.log(`You answered ${score} out of ${questions.length} questions correctly.`);
-}  
-
+}
+    rl.close();
+}
 //STARTING THE GAME
 askQuestion();
