@@ -60,7 +60,7 @@ function askQuestion() {
     if (current < questions.length) {
         const question = questions[current];
         console.log(`\nQuestion ${current + 1}: ${question.question}`);
-        question.options.forEach(option => console.log(option));
+        question.options.map((option,i) => console.log(`${i + 1}. ${option}`));
         rl.question("Your answer (A, B, C, D): ", (answer) => {
             checkAnswer(answer.toUpperCase());
         });
@@ -80,15 +80,6 @@ function checkAnswer(answer) {
     current++;
     askQuestion();
 }
-
-//CHECKING THE SCORE
-if (score === questions.length) {
-    console.log("Congratulations! You answered all questions correctly!");
-} else {
-    console.log(`You answered ${score} out of ${questions.length} questions correctly.`);
-}   
-
-
 
 //ENDING THE GAME AND DISPLAYING THE SCORE AND TIME TAKEN
 function endGame() {
