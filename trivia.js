@@ -90,7 +90,7 @@ if (score === questions.length) {
 
 
 
-//ENDING THE GAME
+//ENDING THE GAME AND DISPLAYING THE SCORE AND TIME TAKEN
 function endGame() {
     const endTime = Date.now();
     const timeTaken = (endTime - startTime) / 1000;
@@ -98,6 +98,11 @@ function endGame() {
     console.log(`Time taken: ${timeTaken} seconds`);
     rl.close();
 }
+if (score === questions.length) {
+    console.log("Congratulations! You answered all questions correctly!");
+} else {
+    console.log(`You answered ${score} out of ${questions.length} questions correctly.`);
+}  
 
 //STARTING THE GAME
 askQuestion();
